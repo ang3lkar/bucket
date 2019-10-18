@@ -1,1 +1,164 @@
 
+{
+  "consumer": {
+    "name": "ats-desktop-app"
+  },
+  "provider": {
+    "name": "ats-api-job-titles"
+  },
+  "interactions": [
+    {
+      "_id": "41539dc5f30d42a6df4d71d974d8066c127f13e8",
+      "description": "a GET request for job titles",
+      "request": {
+        "method": "GET",
+        "path": "\/ats\/api\/job_titles",
+        "headers": {
+          "Accept": "application\/json; charset=utf-8"
+        },
+        "matchingRules": {
+          "$.headers.Accept": {
+            "match": "regex",
+            "regex": "application\\\/json; *charset=utf-8"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application\/json; charset=utf-8"
+        },
+        "body": {
+          "data": [
+            {
+              "id": "972311620",
+              "type": "job_title",
+              "attributes": {
+                "name": "Area Manager"
+              },
+              "meta": {
+                
+              }
+            }
+          ],
+          "meta": {
+            "ctx": "37394d02-f2fd-47e6-a866-7ec36f22494b"
+          }
+        },
+        "matchingRules": {
+          "$.headers.Content-Type": {
+            "match": "regex",
+            "regex": "application\\\/json; *charset=utf-8"
+          },
+          "$.body": {
+            "match": "type"
+          },
+          "$.body.data": {
+            "min": 1
+          },
+          "$.body.data[*].*": {
+            "match": "type"
+          },
+          "$.body.data[*].id": {
+            "match": "type"
+          },
+          "$.body.data[*].attributes.name": {
+            "match": "type"
+          },
+          "$.body.meta.ctx": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  },
+  "createdAt": "2019-08-09T08:54:15+00:00",
+  "_links": {
+    "self": {
+      "title": "Pact",
+      "name": "Pact between ats-desktop-app (ve848d7736c) and ats-api-job-titles",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/version\/e848d7736c"
+    },
+    "pb:consumer": {
+      "title": "Consumer",
+      "name": "ats-desktop-app",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacticipants\/ats-desktop-app"
+    },
+    "pb:consumer-version": {
+      "title": "Consumer version",
+      "name": "e848d7736c",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacticipants\/ats-desktop-app\/versions\/e848d7736c"
+    },
+    "pb:provider": {
+      "title": "Provider",
+      "name": "ats-api-job-titles",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacticipants\/ats-api-job-titles"
+    },
+    "pb:latest-pact-version": {
+      "title": "Latest version of this pact",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/latest"
+    },
+    "pb:all-pact-versions": {
+      "title": "All versions of this pact",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/versions"
+    },
+    "pb:latest-untagged-pact-version": {
+      "title": "Latest untagged version of this pact",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/latest-untagged"
+    },
+    "pb:latest-tagged-pact-version": {
+      "title": "Latest tagged version of this pact",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/latest\/{tag}",
+      "templated": true
+    },
+    "pb:previous-distinct": {
+      "title": "Previous distinct version of this pact",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/version\/e848d7736c\/previous-distinct"
+    },
+    "pb:diff-previous-distinct": {
+      "title": "Diff with previous distinct version of this pact",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/version\/e848d7736c\/diff\/previous-distinct"
+    },
+    "pb:diff": {
+      "title": "Diff with another specified version of this pact",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/pact-version\/cc0d28daf9c13d3ce93839d955dcab11d11408ca\/diff\/pact-version\/{pactVersion}",
+      "templated": true
+    },
+    "pb:pact-webhooks": {
+      "title": "Webhooks for the pact between ats-desktop-app and ats-api-job-titles",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/webhooks\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app"
+    },
+    "pb:consumer-webhooks": {
+      "title": "Webhooks for all pacts with provider ats-api-job-titles",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/webhooks\/consumer\/ats-api-job-titles"
+    },
+    "pb:tag-prod-version": {
+      "title": "PUT to this resource to tag this consumer version as 'production'",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacticipants\/ats-desktop-app\/versions\/e848d7736c\/tags\/prod"
+    },
+    "pb:tag-version": {
+      "title": "PUT to this resource to tag this consumer version",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacticipants\/ats-desktop-app\/versions\/e848d7736c\/tags\/{tag}"
+    },
+    "pb:publish-verification-results": {
+      "title": "Publish verification results",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/pact-version\/cc0d28daf9c13d3ce93839d955dcab11d11408ca\/verification-results"
+    },
+    "pb:triggered-webhooks": {
+      "title": "Webhooks triggered by the publication of this pact",
+      "href": "https:\/\/pact-broker-blue.herokuapp.com\/pacts\/provider\/ats-api-job-titles\/consumer\/ats-desktop-app\/version\/e848d7736c\/triggered-webhooks"
+    },
+    "curies": [
+      {
+        "name": "pb",
+        "href": "https:\/\/pact-broker-blue.herokuapp.com\/doc\/{rel}?context=pact",
+        "templated": true
+      }
+    ]
+  }
+}
