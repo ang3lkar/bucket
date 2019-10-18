@@ -11,7 +11,6 @@
     {
       "_id": "41539dc5f30d42a6df4d71d974d8066c127f13e8",
       "description": "a GET request for job titles",
-      "providerState": "job descriptions exist",
       "request": {
         "method": "GET",
         "path": "\/ats\/api\/job_titles",
