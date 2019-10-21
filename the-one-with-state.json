@@ -1,0 +1,177 @@
+{
+  "consumer":{
+    "name":"OnDemand"
+  },
+  "provider":{
+    "name":"AtsApi"
+  },
+  "interactions":[
+    {
+      "_id":"c93991b2270837fd1f4d8f3e23442ff511b98ec9",
+      "description":"a GET request for job titles",
+      "providerState":"job descriptions exist in database",
+      "request":{
+        "method":"GET",
+        "path":"/ats/api/job_titles",
+        "headers":{
+          "Accept":"application/json; charset=utf-8"
+        },
+        "matchingRules":{
+          "$.headers.Accept":{
+            "match":"regex",
+            "regex":"application\\/json"
+          }
+        }
+      },
+      "response":{
+        "status":200,
+        "headers":{
+          "Content-Type":"application/json; charset=utf-8"
+        },
+        "body":{
+          "data":[
+            {
+              "id":"972311621",
+              "type":"job_title",
+              "attributes":{
+                "name":"Area Manager"
+              },
+              "meta":{
+
+              }
+            }
+          ],
+          "meta":{
+            "ctx":"37394d02-f2fd-47e6-a866-7ec36f22494b"
+          }
+        },
+        "matchingRules":{
+          "$.headers.Content-Type":{
+            "match":"regex",
+            "regex":"application\\/json"
+          },
+          "$.body":{
+            "match":"type"
+          },
+          "$.body.data":{
+            "min":1
+          },
+          "$.body.data[*].*":{
+            "match":"type"
+          },
+          "$.body.data[*].id":{
+            "match":"type"
+          },
+          "$.body.data[*].attributes":{
+            "match":"type"
+          },
+          "$.body.data[*].attributes.name":{
+            "match":"type"
+          },
+          "$.body.data[*].meta":{
+            "match":"type"
+          },
+          "$.body.meta":{
+            "match":"type"
+          },
+          "$.body.meta.ctx":{
+            "match":"regex",
+            "regex":"^[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$"
+          }
+        }
+      }
+    }
+  ],
+  "metadata":{
+    "pactSpecification":{
+      "version":"2.0.0"
+    }
+  },
+  "createdAt":"2019-10-21T07:41:05+00:00",
+  "_links":{
+    "self":{
+      "title":"Pact",
+      "name":"Pact between OnDemand (vc2ec2bb68e) and AtsApi",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/version/c2ec2bb68e"
+    },
+    "pb:consumer":{
+      "title":"Consumer",
+      "name":"OnDemand",
+      "href":"http://localhost:8080/pacticipants/OnDemand"
+    },
+    "pb:consumer-version":{
+      "title":"Consumer version",
+      "name":"c2ec2bb68e",
+      "href":"http://localhost:8080/pacticipants/OnDemand/versions/c2ec2bb68e"
+    },
+    "pb:provider":{
+      "title":"Provider",
+      "name":"AtsApi",
+      "href":"http://localhost:8080/pacticipants/AtsApi"
+    },
+    "pb:latest-pact-version":{
+      "title":"Latest version of this pact",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/latest"
+    },
+    "pb:all-pact-versions":{
+      "title":"All versions of this pact",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/versions"
+    },
+    "pb:latest-untagged-pact-version":{
+      "title":"Latest untagged version of this pact",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/latest-untagged"
+    },
+    "pb:latest-tagged-pact-version":{
+      "title":"Latest tagged version of this pact",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/latest/{tag}",
+      "templated":true
+    },
+    "pb:previous-distinct":{
+      "title":"Previous distinct version of this pact",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/version/c2ec2bb68e/previous-distinct"
+    },
+    "pb:diff-previous-distinct":{
+      "title":"Diff with previous distinct version of this pact",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/version/c2ec2bb68e/diff/previous-distinct"
+    },
+    "pb:diff":{
+      "title":"Diff with another specified version of this pact",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/pact-version/11f691bb7028bc0c7667e640d55ee0d11b2033a1/diff/pact-version/{pactVersion}",
+      "templated":true
+    },
+    "pb:pact-webhooks":{
+      "title":"Webhooks for the pact between OnDemand and AtsApi",
+      "href":"http://localhost:8080/webhooks/provider/AtsApi/consumer/OnDemand"
+    },
+    "pb:consumer-webhooks":{
+      "title":"Webhooks for all pacts with provider AtsApi",
+      "href":"http://localhost:8080/webhooks/consumer/AtsApi"
+    },
+    "pb:tag-prod-version":{
+      "title":"PUT to this resource to tag this consumer version as 'production'",
+      "href":"http://localhost:8080/pacticipants/OnDemand/versions/c2ec2bb68e/tags/prod"
+    },
+    "pb:tag-version":{
+      "title":"PUT to this resource to tag this consumer version",
+      "href":"http://localhost:8080/pacticipants/OnDemand/versions/c2ec2bb68e/tags/{tag}"
+    },
+    "pb:publish-verification-results":{
+      "title":"Publish verification results",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/pact-version/11f691bb7028bc0c7667e640d55ee0d11b2033a1/verification-results"
+    },
+    "pb:latest-verification-results":{
+      "href":"/pacts/provider/AtsApi/consumer/OnDemand/pact-version/11f691bb7028bc0c7667e640d55ee0d11b2033a1/verification-results/latest"
+    },
+    "pb:triggered-webhooks":{
+      "title":"Webhooks triggered by the publication of this pact",
+      "href":"http://localhost:8080/pacts/provider/AtsApi/consumer/OnDemand/version/c2ec2bb68e/triggered-webhooks"
+    },
+    "curies":[
+      {
+        "name":"pb",
+        "href":"http://localhost:8080/doc/{rel}?context=pact",
+        "templated":true
+      }
+    ]
+  }
+}
